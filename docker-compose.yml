@@ -1,0 +1,12 @@
+services:
+
+  zeus:
+
+    container_name: zeus
+
+    build: .
+
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"
