@@ -1,4 +1,5 @@
 from flask import Blueprint
+from config import Config
 
 from app.services.system import get_system_info
 from flask import request
@@ -25,13 +26,21 @@ def health():
 def version():
 
     return {
-        "version": "1.0.0"
+        "version": Config.APP_VERSION
     }
+
+
 
 @api.route("/system")
 def system():
 
-    return get_system_info()
+    return {
+        "app": Config.APP_NAME,
+        "version": Config.APP_VERSION
+    }
+
+
+
 @api.route("/projects", methods=["POST"])
 def create_project_route():
 
