@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>L0G4N | Cloud Security Engineer</title>
+
+    <meta name="description"
+        content="Cloud Security Engineer especializado em Cloudflare, Zero Trust, Application Security, Check Point e Automação.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #050505;
+            color: #ffffff;
+            font-family: "Segoe UI", sans-serif;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top left,
+                    rgba(0, 102, 255, 0.15),
+                    transparent 30%),
+                radial-gradient(circle at top right,
+                    rgba(255, 0, 0, 0.12),
+                    transparent 30%);
+
+            z-index: -1;
+        }
+
+        nav {
+            width: 100%;
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(12px);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .logo-text span {
+            color: #ff2d2d;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: #2f81f7;
+        }
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            padding: 40px;
+        }
+
+        .hero-content {
+            max-width: 1100px;
+        }
+
+        .hero img {
+            width: 340px;
+            max-width: 90%;
+            margin-bottom: 30px;
+
+            filter:
+                drop-shadow(0 0 20px rgba(0, 102, 255, .5))
+                drop-shadow(0 0 20px rgba(255, 0, 0, .3));
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #2f81f7;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #b5b5b5;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #0066ff, #0ea5e9);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #444;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            border-color: #2f81f7;
+        }
+
+        section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 60px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #0d1117;
+            border: 1px solid #1f2937;
+            border-radius: 20px;
+            padding: 30px;
+
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #2f81f7;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #2f81f7;
+        }
+
+        .about {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.9;
+            font-size: 1.15rem;
+            color: #d1d5db;
+        }
+
+        .tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .tech span {
+            background: #111827;
+            border: 1px solid #1f2937;
+            padding: 12px 20px;
+            border-radius: 999px;
+        }
+
+        .focus {
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid #1f2937;
+            color: #9ca3af;
+        }
+
+        @media(max-width:768px) {
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            nav div:last-child {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+
+    <div class="logo-text">
+        L0G<span>4</span>N
+    </div>
+
+    <div>
+        <a href="#about">Sobre</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#stack">Stack</a>
+        <a href="#focus">Focus</a>
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <img src="{{ url_for('static', filename='img/logo.png') }}"
+     alt="L0G4N Logo">
+
+        <h1>
+            Cloud Security
+            <span class="highlight">Engineer</span>
+        </h1>
+
+        <p class="subtitle">
+
+            Especialista em Cloud Security, Zero Trust,
+            Application Security e Arquitetura de Segurança.
+
+            <br><br>
+
+            Focado em Cloudflare, Check Point, WAF, ZTNA,
+            VPNs, Segurança de Aplicações e Automação.
+
+        </p>
+
+        <div class="buttons">
+
+            <a href="#expertise" class="btn btn-primary">
+                Explorar Especialidades
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                Sobre Mim
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+
+    <h2 class="section-title">
+        Sobre Mim
+    </h2>
+
+    <div class="about">
+
+        Sou um profissional focado em Cloud Security,
+        especializado em troubleshooting avançado,
+        proteção de aplicações, Zero Trust e arquitetura
+        de ambientes corporativos.
+
+        <br><br>
+
+        Minha atuação é voltada para implementação,
+        integração e proteção de infraestruturas modernas
+        utilizando Cloudflare, Check Point, Linux e
+        automação de segurança.
+
+    </div>
+
+</section>
+
+<section id="expertise">
+
+    <h2 class="section-title">
+        Expertise
+    </h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <h3>☁️ Cloud Security</h3>
+            <p>Proteção de ambientes híbridos e aplicações críticas.</p>
+        </div>
+
+        <div class="card">
+            <h3>🛡️ Zero Trust</h3>
+            <p>Cloudflare Access, WARP e segmentação segura.</p>
+        </div>
+
+        <div class="card">
+            <h3>🔥 Application Security</h3>
+            <p>WAF, API Security, Rate Limiting e proteção avançada.</p>
+        </div>
+
+        <div class="card">
+            <h3>🌐 Network Security</h3>
+            <p>VPN, Firewall, Identity Awareness e segmentação.</p>
+        </div>
+
+        <div class="card">
+            <h3>⚙️ Automation</h3>
+            <p>Linux, Bash, Python e automação operacional.</p>
+        </div>
+
+        <div class="card">
+            <h3>🔍 Troubleshooting</h3>
+            <p>Análise de logs, pacotes, VPNs e incidentes complexos.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="stack">
+
+    <h2 class="section-title">
+        Technology Stack
+    </h2>
+
+    <div class="tech">
+
+        <span>Cloudflare</span>
+        <span>Check Point</span>
+        <span>Linux</span>
+        <span>Python</span>
+        <span>Apache</span>
+        <span>ZTNA</span>
+        <span>WAF</span>
+        <span>VPN</span>
+        <span>DNS</span>
+        <span>HTTP/S</span>
+        <span>Networking</span>
+        <span>Cybersecurity</span>
+
+    </div>
+
+</section>
+
+<section id="focus">
+
+    <h2 class="section-title">
+        Current Focus
+    </h2>
+
+    <div class="focus">
+
+        ☁️ Cloud Security Architecture<br>
+        🛡️ Zero Trust Implementation<br>
+        🔥 Application Security & WAF<br>
+        ⚙️ Security Automation<br>
+        🌐 Cloudflare & Check Point
+
+    </div>
+
+</section>
+
+<footer>
+
+    © 2026 L0G4N | Cloud Security Engineer
+
+</footer>
+
+</body>
+</html>
