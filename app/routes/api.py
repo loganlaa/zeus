@@ -4,6 +4,7 @@ from app.services.system import get_system_info
 from flask import request
 from app.services.projects import create_project
 from app.services.projects import get_projects
+from app.services.projects import get_project
 
 api = Blueprint(
     "api",
@@ -59,3 +60,18 @@ def get_projects_route():
         }
         for project in projects
     ]
+
+
+@api.route("/projects/<int:project_id>", methods=["GET"])
+def get_project_route(project_id):
+
+    project = get_project(project_id)
+
+    if not project:
+        return {"error": "Project not found"}, 404
+
+    return {
+        "id": project.id,
+        "name": project.name,
+        "description": project.description
+    }

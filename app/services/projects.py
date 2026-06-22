@@ -17,3 +17,7 @@ def create_project(name, description):
 def get_projects():
 
     return Project.query.all()
+
+def get_project(project_id):
+
+    return Project.query.get(project_id)
