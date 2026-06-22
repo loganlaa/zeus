@@ -39,3 +39,17 @@ def update_project(project_id, data):
     db.session.commit()
 
     return project
+
+
+
+def delete_project(project_id):
+
+    project = Project.query.get(project_id)
+
+    if not project:
+        return None
+
+    db.session.delete(project)
+    db.session.commit()
+
+    return project

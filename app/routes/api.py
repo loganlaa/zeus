@@ -6,6 +6,7 @@ from app.services.projects import create_project
 from app.services.projects import get_projects
 from app.services.projects import get_project
 from app.services.projects import update_project
+from app.services.projects import delete_project
 
 api = Blueprint(
     "api",
@@ -97,4 +98,20 @@ def update_project_route(project_id):
         "id": project.id,
         "name": project.name,
         "description": project.description
+    }
+
+
+
+@api.route("/projects/<int:project_id>", methods=["DELETE"])
+def delete_project_route(project_id):
+
+    project = delete_project(project_id)
+
+    if not project:
+        return {
+            "error": "Project not found"
+        }, 404
+
+    return {
+        "message": "Project deleted"
     }
