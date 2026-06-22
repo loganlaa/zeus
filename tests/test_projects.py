@@ -1,11 +1,4 @@
-from app import create_app
-
-
-def test_create_project():
-
-    app = create_app()
-
-    client = app.test_client()
+def test_create_project(client):
 
     response = client.post(
         "/api/v1/projects",
@@ -16,34 +9,20 @@ def test_create_project():
     )
 
     assert response.status_code == 201
-
     assert response.json["name"] == "Projeto Teste"
 
 
-
-def test_get_projects():
-
-    app = create_app()
-
-    client = app.test_client()
+def test_get_projects(client):
 
     response = client.get(
         "/api/v1/projects"
     )
 
     assert response.status_code == 200
-
-    assert isinstance(
-        response.json,
-        list
-    )
+    assert isinstance(response.json, list)
 
 
-def test_get_project_by_id():
-
-    app = create_app()
-
-    client = app.test_client()
+def test_get_project_by_id(client):
 
     create = client.post(
         "/api/v1/projects",
@@ -60,15 +39,10 @@ def test_get_project_by_id():
     )
 
     assert response.status_code == 200
-
     assert response.json["id"] == project_id
 
 
-def test_update_project():
-
-    app = create_app()
-
-    client = app.test_client()
+def test_update_project(client):
 
     create = client.post(
         "/api/v1/projects",
@@ -89,15 +63,10 @@ def test_update_project():
     )
 
     assert response.status_code == 200
-
     assert response.json["name"] == "Atualizado"
 
 
-def test_delete_project():
-
-    app = create_app()
-
-    client = app.test_client()
+def test_delete_project(client):
 
     create = client.post(
         "/api/v1/projects",
