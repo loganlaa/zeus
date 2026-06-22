@@ -5,6 +5,7 @@ from flask import request
 from app.services.projects import create_project
 from app.services.projects import get_projects
 from app.services.projects import get_project
+from app.services.projects import update_project
 
 api = Blueprint(
     "api",
@@ -69,6 +70,28 @@ def get_project_route(project_id):
 
     if not project:
         return {"error": "Project not found"}, 404
+
+    return {
+        "id": project.id,
+        "name": project.name,
+        "description": project.description
+    }
+
+
+@api.route("/projects/<int:project_id>", methods=["PUT"])
+def update_project_route(project_id):
+
+    data = request.get_json()
+
+    project = update_project(
+        project_id,
+        data
+    )
+
+    if not project:
+        return {
+            "error": "Project not found"
+        }, 404
 
     return {
         "id": project.id,

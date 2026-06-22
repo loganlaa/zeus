@@ -18,6 +18,24 @@ def get_projects():
 
     return Project.query.all()
 
+
+
 def get_project(project_id):
 
     return Project.query.get(project_id)
+
+
+
+def update_project(project_id, data):
+
+    project = Project.query.get(project_id)
+
+    if not project:
+        return None
+
+    project.name = data["name"]
+    project.description = data["description"]
+
+    db.session.commit()
+
+    return project
