@@ -1,4 +1,4 @@
-import os
+kimport os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -16,7 +16,8 @@ class Config:
     )
 
     SQLALCHEMY_DATABASE_URI = os.getenv(
-        "DATABASE_URL"
+        "DATABASE_URL",
+        "sqlite:///zeus.db"
     )
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
