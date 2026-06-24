@@ -8,12 +8,13 @@ def create_app():
 
     from app.routes.web import web
     from app.routes.api import api
-    from app.extensions import db
+    from app.extensions import db, migrate
     from app.models.project import Project
 
     app.register_blueprint(web)
     app.register_blueprint(api)
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     return app
