@@ -2,7 +2,7 @@ from flask import Blueprint
 from config import Config
 
 from app.services.system import get_system_info
-from flask import request
+import flask
 from app.services.projects import create_project
 from app.services.projects import get_projects
 from app.services.projects import get_project
@@ -44,7 +44,7 @@ def system():
 @api.route("/projects", methods=["POST"])
 def create_project_route():
 
-    data = request.get_json()
+    data = flask.request.get_json()
 
     project = create_project(
         data["name"],
@@ -91,7 +91,7 @@ def get_project_route(project_id):
 @api.route("/projects/<int:project_id>", methods=["PUT"])
 def update_project_route(project_id):
 
-    data = request.get_json()
+    data = flask.request.get_json()
 
     project = update_project(
         project_id,
